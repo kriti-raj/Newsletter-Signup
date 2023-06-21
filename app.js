@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
+require("dotenv").config();
 
 const app = express();
 
@@ -38,7 +39,7 @@ app.post("/", function (req, res) {
 
     const options = {
         method: "POST",
-        auth: "kritiraj:2d2cdc03bdc47f2a9825384621dbb3b1-us21"
+        auth: "kritiraj:5c518ce91123735b5612f0730f32bd9b-us21"
 
     }
 
@@ -67,12 +68,7 @@ app.post("/failure", function (req, res) {
     res.redirect("/");
 })
 
-app.listen(3000, function () {
-    console.log("Server is running on port 3000");
+const port = process.env.PORT || 3000;
+app.listen(port, function () {
+    console.log("Server is running on ${port}");
 });
-
-// API Key
-// 2d2cdc03bdc47f2a9825384621dbb3b1-us21
-
-// List id
-// a9ecb7605b
